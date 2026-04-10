@@ -2,20 +2,24 @@ import React from 'react';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <span>Branding</span>
-        <svg className={styles.logoIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
+        <img src="/logo.png" alt="Maybiscode Cooperative" className={styles.logoImage} />
       </div>
       <ul className={styles.navLinks}>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#agency">Agency</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" onClick={(e) => handleScroll(e, 'home')}>Home</a></li>
+        <li><a href="#agency" onClick={(e) => handleScroll(e, 'agency')}>Agency</a></li>
+        <li><a href="#services" onClick={(e) => handleScroll(e, 'services')}>Services</a></li>
+        <li><a href="#portfolio" onClick={(e) => handleScroll(e, 'portfolio')}>Portfolio</a></li>
+        <li><a href="#contact" onClick={(e) => handleScroll(e, 'contact')}>Contact</a></li>
       </ul>
       <button className={styles.messageBtn}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">

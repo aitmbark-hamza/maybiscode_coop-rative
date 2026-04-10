@@ -17,16 +17,16 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--primary-dark);
+  margin: 0;
+  padding: 0;
 }
 
-.logoIcon {
-  width: 24px;
-  height: 24px;
-  transform: rotate(-15deg);
+.logoImage {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .navLinks {
