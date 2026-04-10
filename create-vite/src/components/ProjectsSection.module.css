@@ -1,0 +1,166 @@
+/* Projects Section Styles */
+.projects {
+  padding: 0;
+  background: var(--primary-light);
+  position: relative;
+}
+
+.sideLabel {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: rotate(-90deg) translateX(50%);
+  transform-origin: right center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--text-light-gray);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.projectItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+  position: relative;
+}
+
+.projectImage {
+  position: relative;
+  overflow: hidden;
+}
+
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.projectItem:hover .projectImage img {
+  transform: scale(1.05);
+}
+
+.projectNumber {
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  opacity: 0.1;
+  line-height: 1;
+  z-index: 1;
+}
+
+.projectContent {
+  padding: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-light);
+}
+
+.projectCategory {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent-teal);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.projectContent h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--primary-dark);
+}
+
+.projectContent p {
+  color: var(--text-gray);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.projectBtn {
+  padding: 1rem 2rem;
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  transition: transform 0.3s ease;
+}
+
+.projectBtn:hover {
+  transform: translateX(5px);
+}
+
+/* Projects Section Responsive */
+@media (max-width: 1200px) {
+  .projectItem {
+    grid-template-columns: 1fr;
+  }
+
+  .projectNumber {
+    right: 1rem;
+    font-size: 8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .projectContent {
+    padding: 3rem 2rem;
+  }
+
+  .projectContent h2 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectContent {
+    padding: 2rem 1.5rem;
+  }
+
+  .projectContent h2 {
+    font-size: 2rem;
+  }
+
+  .projectContent p {
+    font-size: 0.95rem;
+  }
+
+  .projectNumber {
+    font-size: 6rem;
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectContent {
+    padding: 2rem 1rem;
+  }
+
+  .projectContent h2 {
+    font-size: 1.8rem;
+  }
+
+  .projectNumber {
+    font-size: 4rem;
+  }
+
+  .projectBtn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}

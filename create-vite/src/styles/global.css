@@ -1,0 +1,205 @@
+/* Global Reset & Optimization */
+:root {
+  --primary-dark: #1a1a1a;
+  --primary-light: #ffffff;
+  --accent-gold: #c9a962;
+  --accent-teal: #2d8a8a;
+  --text-gray: #666666;
+  --text-light-gray: #999999;
+  --bg-light: #f5f5f5;
+  --border-light: #e0e0e0;
+  --gradient-cta: linear-gradient(135deg, #c9a962 0%, #2d8a8a 100%);
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* CSS Reset - Fix border/margin collapse */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fix subpixel rendering */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Remove horizontal scroll and fix body */
+body {
+  font-family: var(--font-primary);
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: auto; /* Allow vertical scroll */
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Fix transform and scale issues */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove unwanted borders and outlines */
+button,
+input,
+textarea,
+select,
+a {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/* Focus states - clean borders only */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+a:focus {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* Fix section spacing */
+section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix container issues */
+.container,
+.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Fix grid and flexbox issues */
+.grid,
+.flex {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Transform optimization */
+.transform-fix {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Fix hover states */
+.hover-clean:hover {
+  transform: none;
+  transition: all 0.3s ease;
+}
+
+/* Remove box-shadow issues */
+.shadow-clean {
+  box-shadow: none;
+}
+
+.shadow-clean:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Fix overflow issues */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+/* Fix margin collapse */
+.margin-collapse-fix {
+  display: flow-root;
+}
+
+/* Fix spacing between sections */
+.section-spacing {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Fix responsive images */
+.responsive-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Fix navigation issues */
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fix footer issues */
+.footer-bottom {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Fix animation issues */
+.animation-fix {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Fix mobile issues */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .mobile-fix {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}

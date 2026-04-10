@@ -1,0 +1,109 @@
+.team {
+  padding: 100px 50px;
+  background: #ffffff;
+}
+
+.teamGrid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.teamMember {
+  display: flex;
+  flex-direction: column;
+}
+
+.memberImageWrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: #f7f7f7;
+  aspect-ratio: 4/5; /* Maintains professional portrait height */
+}
+
+.memberImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* HOVER EFFECTS */
+.teamMember:hover .memberImage {
+  transform: scale(1.1);
+}
+
+.socialOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.iconCircle {
+  width: 40px;
+  height: 40px;
+  background: #111;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transform: translateY(-10px);
+  transition: transform 0.4s ease;
+}
+
+.teamMember:hover .socialOverlay {
+  opacity: 1;
+}
+
+.teamMember:hover .iconCircle {
+  transform: translateY(0);
+}
+
+/* INFO BAR BELOW IMAGE */
+.memberInfo {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between; /* Name on left, Role on right */
+  align-items: center;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.teamMember:hover .memberInfo {
+  border-color: #eee;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #232323;
+  margin: 0;
+}
+
+.role {
+  font-size: 12px;
+  color: #999;
+  text-transform: capitalize;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .teamGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .teamGrid { grid-template-columns: 1fr; }
+  .team { padding: 50px 20px; }
+}

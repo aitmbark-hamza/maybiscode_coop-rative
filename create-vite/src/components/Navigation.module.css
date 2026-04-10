@@ -1,0 +1,139 @@
+/* Navigation Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+.logoIcon {
+  width: 24px;
+  height: 24px;
+  transform: rotate(-15deg);
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.navLinks a:hover {
+  color: var(--primary-dark);
+}
+
+.navLinks a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transition: width 0.3s ease;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+.messageBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: var(--primary-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.messageBtn:hover {
+  background: var(--primary-dark);
+  color: var(--primary-light);
+}
+
+.messageBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Navigation Responsive */
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .messageBtn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .navLinks {
+    display: none;
+  }
+
+  .messageBtn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .messageBtn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .messageBtn {
+    display: none;
+  }
+}

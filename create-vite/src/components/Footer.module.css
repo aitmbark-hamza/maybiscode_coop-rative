@@ -1,0 +1,226 @@
+.footer {
+  background-color: #1a1a1a;
+  /* This creates the grid pattern seen in the image */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px; 
+  color: #ffffff;
+  padding: 80px 50px;
+  font-family: 'Inter', sans-serif; /* Use a clean sans-serif */
+}
+
+.footerContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Left side is wider */
+  gap: 50px;
+  margin-bottom: 80px;
+}
+
+.headline {
+  font-size: 3.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 60px;
+  letter-spacing: -0.02em;
+}
+
+.contactWrapper {
+  display: flex;
+  gap: 60px;
+}
+
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 1.1rem;
+  color: #bbb;
+}
+
+.rightColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.groupTitle {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.linkGroup ul {
+  list-style: none;
+  padding: 0;
+}
+
+.linkGroup li {
+  margin-bottom: 12px;
+}
+
+.linkGroup a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.linkGroup a:hover {
+  color: #fff;
+}
+
+/* Logo Styling */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
+}
+
+.logoText {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.logoIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Bottom Section Styling */
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+  font-size: 13px;
+  color: #666;
+}
+
+.legalText {
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.legalText a, .copyright a {
+  color: #888;
+  text-decoration: underline;
+}
+
+.copyright {
+  white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .footerTop {
+    grid-template-columns: 1fr;
+  }
+  .rightColumns {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .headline {
+    font-size: 2.5rem;
+  }
+}
+/* ... (keep your existing base styles from the previous message) ... */
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+
+/* For Tablets (1024px and below) */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 60px 30px;
+  }
+
+  .footerTop {
+    grid-template-columns: 1fr; /* Stack the headline on top of the links */
+    gap: 60px;
+  }
+
+  .headline {
+    font-size: 3rem;
+    max-width: 100%;
+  }
+
+  .rightColumns {
+    grid-template-columns: 1fr 1fr; /* Links take 2 columns, logo moves below */
+    gap: 40px;
+  }
+
+  .logoContainer {
+    justify-content: flex-start; /* Logo aligns left on smaller screens */
+    grid-column: span 2;
+  }
+}
+
+/* For Mobile Phones (768px and below) */
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 20px;
+  }
+
+  .headline {
+    font-size: 2.2rem; /* Shrink text so it doesn't overflow */
+    margin-bottom: 40px;
+  }
+
+  .contactWrapper {
+    flex-direction: column; /* Stack Phone and Email vertically */
+    gap: 30px;
+  }
+
+  .rightColumns {
+    grid-template-columns: 1fr; /* All link groups stack vertically */
+    gap: 30px;
+  }
+
+  .logoContainer {
+    grid-column: span 1;
+    margin-top: 20px;
+  }
+
+  .footerBottom {
+    flex-direction: column; /* Legal text stacks on top of Copyright */
+    align-items: flex-start;
+    gap: 30px;
+    text-align: left;
+  }
+
+  .legalText {
+    max-width: 100%; /* Take full width on mobile */
+  }
+}
+
+/* For Small Phones (480px and below) */
+@media (max-width: 480px) {
+  .headline {
+    font-size: 1.8rem;
+  }
+  
+  .footer {
+    background-size: 15px 15px; /* Smaller grid for smaller screens */
+  }
+}

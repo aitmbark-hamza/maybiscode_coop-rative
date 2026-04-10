@@ -1,0 +1,162 @@
+/* About Section Styles */
+.about {
+  padding: 8rem 0;
+  background: var(--primary-light);
+}
+
+.aboutContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.aboutImages {
+  position: relative;
+}
+
+.imageStack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.imageStack img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imageStack img:nth-child(1) {
+  transform: translateY(40px);
+}
+
+.imageStack img:nth-child(2) {
+  transform: translateY(-20px);
+}
+
+.imageStack img:nth-child(3) {
+  grid-column: 1 / -1;
+  width: 60%;
+  margin: 0 auto;
+  transform: translateY(-40px);
+}
+
+.aboutContent {
+  padding-left: 2rem;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.aboutContent h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  color: var(--primary-dark);
+}
+
+.aboutContent p {
+  color: var(--text-gray);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.aboutButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.exploreBtn {
+  padding: 1rem 2rem;
+  background: var(--primary-dark);
+  color: white;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.exploreBtn:hover {
+  transform: translateY(-2px);
+}
+
+.moreBtn {
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--primary-dark);
+  border: 1px solid var(--border-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.moreBtn:hover {
+  border-color: var(--primary-dark);
+}
+
+/* About Section Responsive */
+@media (max-width: 1400px) {
+  .aboutContainer {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .aboutContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .about {
+    padding: 6rem 2rem;
+  }
+
+  .aboutContent h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 1.5rem;
+  }
+
+  .aboutContainer {
+    gap: 2rem;
+  }
+
+  .aboutContent h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 3rem 1rem;
+  }
+
+  .aboutContent h2 {
+    font-size: 1.6rem;
+  }
+}

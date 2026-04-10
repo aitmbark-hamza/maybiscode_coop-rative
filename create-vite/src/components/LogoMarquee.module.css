@@ -1,0 +1,45 @@
+/* Logo Marquee Styles */
+.logoMarquee {
+  overflow: hidden;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--primary-light);
+}
+
+.marqueeTrack {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  width: fit-content;
+}
+
+.logoItem {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  margin: 0 4rem;
+  white-space: nowrap;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.logoItem:hover {
+  opacity: 1;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Logo Marquee Responsive */
+@media (max-width: 768px) {
+  .logoMarquee {
+    padding: 2rem 0;
+  }
+
+  .logoItem {
+    font-size: 1.2rem;
+    margin: 0 3rem;
+  }
+}

@@ -1,0 +1,49 @@
+/* Marquee Text Styles */
+.marqueeSection {
+  overflow: hidden;
+  padding: 4rem 0;
+  background: var(--primary-light);
+  border-top: 1px solid var(--border-light);
+}
+
+.marqueeTextTrack {
+  display: flex;
+  animation: marqueeText 20s linear infinite;
+  width: fit-content;
+}
+
+.marqueeTextTrack span {
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  white-space: nowrap;
+  padding: 0 2rem;
+  opacity: 0.1;
+}
+
+.marqueeTextTrack span:nth-child(2) {
+  opacity: 1;
+}
+
+@keyframes marqueeText {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Marquee Text Responsive */
+@media (max-width: 768px) {
+  .marqueeSection {
+    padding: 3rem 0;
+  }
+
+  .marqueeTextTrack span {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .marqueeTextTrack span {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+}
