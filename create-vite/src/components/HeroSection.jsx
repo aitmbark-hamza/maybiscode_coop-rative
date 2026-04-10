@@ -71,7 +71,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div ref={imageRef} className={styles.heroImage}>
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="Team collaboration" />
+          <img src="hero.png" alt="Team collaboration" />
         </div>
       </div>
     </section>
