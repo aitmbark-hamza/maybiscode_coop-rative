@@ -52,15 +52,29 @@ canvas {
   display: block;
 }
 
-/* Remove unwanted borders and outlines */
+/* Remove ALL borders and outlines */
+*,
+*::before,
+*::after {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 button,
 input,
 textarea,
 select,
-a {
-  border: none;
-  outline: none;
-  background: transparent;
+a,
+img,
+section,
+div,
+nav,
+footer,
+main {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Focus states - clean borders only */
@@ -73,12 +87,35 @@ a:focus {
   outline-offset: 2px;
 }
 
-/* Fix section spacing */
+/* Fix section spacing - proper widths with good layout */
 section {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 80px 20px !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+div,
+nav,
+footer,
+main {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.container,
+.container-fluid {
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Fix container issues */
@@ -188,9 +225,29 @@ section {
     font-size: 14px;
   }
   
+  section {
+    padding: 60px 15px !important;
+  }
+  
+  .container,
+  .container-fluid {
+    padding: 0 15px !important;
+  }
+  
   .mobile-fix {
     transform: none !important;
     transition: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 40px 10px !important;
+  }
+  
+  .container,
+  .container-fluid {
+    padding: 0 10px !important;
   }
 }
 
