@@ -11,22 +11,25 @@ const TeamSection = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Staggered reveal animation as you scroll down
+      // Logic to check if screen is mobile for smoother triggers
+      const isMobile = window.innerWidth < 768;
+
       gsap.fromTo(
         teamRef.current,
         { 
           opacity: 0, 
-          y: 60 
+          y: isMobile ? 40 : 60 // Less movement on mobile feels cleaner
         },
         {
           opacity: 1,
           y: 0,
-          duration: 1.2,
-          stagger: 0.2,
-          ease: "power4.out",
+          duration: 1,
+          stagger: isMobile ? 0.1 : 0.2, // Faster stagger on mobile
+          ease: "power3.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: "top 80%",
+            // Trigger earlier on mobile so the user sees the animation mid-scroll
+            start: isMobile ? "top 90%" : "top 80%", 
             toggleActions: "play none none reverse"
           }
         }
@@ -37,10 +40,10 @@ const TeamSection = () => {
   }, []);
 
   const team = [
-    { name: "Matthew Taylor", role: "Writer", image: "hbiba.png", social: "facebook" },
-    { name: "Btissam Baissar", role: "Developer", image: "ibtissam.png", social: "facebook" },
-    { name: "Herman Miller", role: "Designer", image: "mona.png", social: "facebook" },
-    { name: "Samira Moukrim", role: "Developer", image: "samira.png", social: "facebook" }
+    { name: "Matthew Taylor", role: "Writer", image: "hbiba.png" },
+    { name: "Btissam Baissar", role: "Developer", image: "ibtissam.png" },
+    { name: "Herman Miller", role: "Designer", image: "mona.png" },
+    { name: "Samira Moukrim", role: "Developer", image: "samira.png" }
   ];
 
   return (
@@ -56,7 +59,7 @@ const TeamSection = () => {
               <img src={member.image} alt={member.name} className={styles.memberImage} />
               <div className={styles.socialOverlay}>
                 <div className={styles.iconCircle}>
-                  <i className="fab fa-facebook-f">f</i>
+                  <span className={styles.fbIcon}>f</span>
                 </div>
               </div>
             </div>

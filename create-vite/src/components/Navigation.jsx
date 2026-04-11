@@ -1,26 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Close menu when clicking a link
   const handleScroll = (e, targetId) => {
     e.preventDefault();
+    setIsMenuOpen(false); // Close mobile menu
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <img src="/logo.png" alt="Maybiscode Cooperative" className={styles.logoImage} />
+        <img src="/logo.png" alt="Logo" className={styles.logoImage} />
       </div>
-      <ul className={styles.navLinks}>
+
+      {/* Hamburger Toggle Button */}
+      <button 
+        className={`${styles.menuToggle} ${isMenuOpen ? styles.open : ''}`} 
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle Navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      {/* Navigation Links */}
+      <ul className={`${styles.navLinks} ${isMenuOpen ? styles.navActive : ''}`}>
         <li><a href="#home" onClick={(e) => handleScroll(e, 'home')}>Home</a></li>
         <li><a href="#agency" onClick={(e) => handleScroll(e, 'agency')}>Agency</a></li>
         <li><a href="#services" onClick={(e) => handleScroll(e, 'services')}>Services</a></li>
         <li><a href="#portfolio" onClick={(e) => handleScroll(e, 'portfolio')}>Portfolio</a></li>
         <li><a href="#contact" onClick={(e) => handleScroll(e, 'contact')}>Contact</a></li>
+        
+        {/* Mobile-only message button inside the menu */}
+        <li className={styles.mobileOnly}>
+          <button className={styles.messageBtnMobile}>Send a message</button>
+        </li>
       </ul>
+
+      {/* Desktop Message Button */}
       <button className={styles.messageBtn}>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeWidth="2"/>
@@ -30,6 +64,9 @@ const Navigation = () => {
         </svg>
         Send a message
       </button>
+
+      {/* Overlay background when menu is open */}
+      {isMenuOpen && <div className={styles.overlay} onClick={() => setIsMenuOpen(false)}></div>}
     </nav>
   );
 };

@@ -1,6 +1,8 @@
 .team {
-  padding: 100px 50px;
+  padding: 100px 5% ;
   background: #ffffff;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .teamGrid {
@@ -8,7 +10,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 30px 20px; /* Vertical gap, Horizontal gap */
 }
 
 .teamMember {
@@ -20,7 +22,8 @@
   position: relative;
   overflow: hidden;
   background-color: #f7f7f7;
-  aspect-ratio: 4/5; /* Maintains professional portrait height */
+  aspect-ratio: 4 / 5;
+  width: 100%;
 }
 
 .memberImage {
@@ -31,8 +34,22 @@
 }
 
 /* HOVER EFFECTS */
-.teamMember:hover .memberImage {
-  transform: scale(1.1);
+@media (hover: hover) {
+  .teamMember:hover .memberImage {
+    transform: scale(1.08);
+  }
+
+  .teamMember:hover .socialOverlay {
+    opacity: 1;
+  }
+
+  .teamMember:hover .iconCircle {
+    transform: translateY(0);
+  }
+
+  .teamMember:hover .memberInfo {
+    border-color: #eee;
+  }
 }
 
 .socialOverlay {
@@ -43,14 +60,15 @@
   height: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: 20px;
+  padding: 15px;
   opacity: 0;
+  background: rgba(0, 0, 0, 0.05); /* Slight tint for better icon visibility */
   transition: opacity 0.4s ease;
 }
 
 .iconCircle {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: #111;
   color: white;
   border-radius: 50%;
@@ -62,48 +80,68 @@
   transition: transform 0.4s ease;
 }
 
-.teamMember:hover .socialOverlay {
-  opacity: 1;
+.fbIcon {
+  font-family: serif;
+  font-weight: bold;
+  font-style: italic;
 }
 
-.teamMember:hover .iconCircle {
-  transform: translateY(0);
-}
-
-/* INFO BAR BELOW IMAGE */
 .memberInfo {
-  padding: 20px 0;
+  padding: 15px 0;
   display: flex;
-  justify-content: space-between; /* Name on left, Role on right */
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s ease;
 }
 
-.teamMember:hover .memberInfo {
-  border-color: #eee;
-}
-
 .name {
   font-size: 14px;
   font-weight: 700;
-  text-transform: capitalize;
   color: #232323;
   margin: 0;
 }
 
 .role {
-  font-size: 12px;
+  font-size: 11px;
   color: #999;
-  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .teamGrid { grid-template-columns: repeat(2, 1fr); }
+/* RESPONSIVE BREAKPOINTS */
+
+@media (max-width: 1100px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 25px;
+  }
 }
 
 @media (max-width: 600px) {
-  .teamGrid { grid-template-columns: 1fr; }
-  .team { padding: 50px 20px; }
+  .team {
+    padding: 60px 20px;
+  }
+  
+  .teamGrid {
+    /* Use 1 column for phones, but keep a max-width so images aren't huge */
+    grid-template-columns: 1fr;
+    max-width: 350px; 
+    margin: 0 auto;
+  }
+
+  .name { font-size: 16px; }
+  .role { font-size: 12px; }
+
+  /* On mobile, icons usually look better always visible or disabled */
+  .socialOverlay {
+    opacity: 1;
+    background: transparent;
+  }
+  
+  .iconCircle {
+    transform: translateY(0);
+    width: 32px;
+    height: 32px;
+  }
 }
