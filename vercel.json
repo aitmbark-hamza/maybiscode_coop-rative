@@ -1,22 +1,8 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "create-vite/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/create-vite/(.*)",
-      "dest": "/create-vite/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/create-vite/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
