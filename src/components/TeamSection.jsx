@@ -40,10 +40,11 @@ const TeamSection = () => {
   }, []);
 
   const team = [
-    { name: "Matthew Taylor", role: "Writer", image: "hbiba.png" },
+    { name: "Nouhaila Anissi", role: "Developer", image: "hbiba.png" },
     { name: "Btissam Baissar", role: "Developer", image: "ibtissam.png" },
-    { name: "Herman Miller", role: "Designer", image: "mona.png" },
+    { name: " Mouna Hammouch", role: "Designer", image: "mouna.png" },
     { name: "Samira Moukrim", role: "Developer", image: "samira.png" }
+    { name: "Yassmina Hammouch ", role: "Developer", image: "Yassmina Hammouch.png" },
   ];
 
   return (
