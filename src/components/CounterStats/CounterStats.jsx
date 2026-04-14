@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styles from '../App.module.css';
+import styles from './CounterStats.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 

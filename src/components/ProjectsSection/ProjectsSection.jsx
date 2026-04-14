@@ -9,7 +9,7 @@ const projects = [
     categoryHighlight: 'DESIGN',
     title: 'Whiteline\nface\nbeauty.',
     description: 'Creating products with a strong identity. Provide brilliant ideas and adding the world called success brand. We deliver customized marketing campaign to use your audience to make a positive move.',
-    image: 'image1.png',
+    image: '/src/assets/images/image1.png',
     link: '/projects/whiteline'
   },
   {
@@ -19,7 +19,7 @@ const projects = [
     categoryHighlight: 'DESIGN',
     title: 'Rebounce\nforce riders.',
     description: 'We specialize in developing products with a distinct and compelling identity. Our team excels generating brilliant ideas that propel brands to success. Through customized marketing campaigns.',
-    image: 'image2.png',
+    image: '/src/assets/images/image2.png',
     link: '/projects/rebounce'
   },
   {
@@ -29,7 +29,7 @@ const projects = [
     categoryHighlight: 'DESIGN',
     title: 'Decorator\nhard carpet.',
     description: 'Creating products with a strong identity. Provide brilliant ideas and adding the world called success brand. We deliver customized marketing campaign to use your audience to make a positive move.',
-    image: 'image3.png',
+    image: '/src/assets/images/image3.png',
     link: '/projects/decorator'
   },
 ];

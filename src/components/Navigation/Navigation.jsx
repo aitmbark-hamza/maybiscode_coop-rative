@@ -26,7 +26,7 @@ const Navigation = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <img src="/logo.png" alt="Logo" className={styles.logoImage} />
+        <img src="/src/assets/images/logo.png" alt="Logo" className={styles.logoImage} />
       </div>
 
       {/* Hamburger Toggle Button */}

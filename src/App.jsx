@@ -2,18 +2,18 @@ import React from 'react';
 import styles from './App.module.css';
 
 // Import all components
-import Navigation from './components/Navigation';
-import HeroSection from './components/HeroSection';
-import LogoMarquee from './components/LogoMarquee';
-import AboutSection from './components/AboutSection';
-import StatsSection from './components/StatsSection';
-import MarqueeText from './components/MarqueeText';
-import ProjectsSection from './components/ProjectsSection';
-import ServicesSection from './components/ServicesSection';
-import CounterStats from './components/CounterStats';
-import TeamSection from './components/TeamSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import Footer from './components/Footer';
+import Navigation from './components/Navigation/Navigation';
+import HeroSection from './components/HeroSection/HeroSection';
+import LogoMarquee from './components/LogoMarquee/LogoMarquee';
+import AboutSection from './components/AboutSection/AboutSection';
+import StatsSection from './components/StatsSection/StatsSection';
+import MarqueeText from './components/MarqueeText/MarqueeText';
+import ProjectsSection from './components/ProjectsSection/ProjectsSection';
+import ServicesSection from './components/ServicesSection/ServicesSection';
+import CounterStats from './components/CounterStats/CounterStats';
+import TeamSection from './components/TeamSection/TeamSection';
+import TestimonialsSection from './components/TestimonialsSection/TestimonialsSection';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
