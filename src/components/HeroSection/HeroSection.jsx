@@ -71,9 +71,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div ref={imageRef} className={styles.heroImage}>
-          <img src="/src/assets/images/hero.png" alt="Team collaboration" />
-            <img src="/src/assets/images/hbiba.png" alt="Team collaboration" />
-              <img src="/src/assets/images/hero.png" alt="Team collaboration" />
+          <img src="hero.png" alt="Team collaboration" />
         </div>
       </div>
     </section>
