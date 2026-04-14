@@ -1,21 +1,21 @@
 .team {
-  padding: 100px 5% ;
+  padding: 100px 5%;
   background: #ffffff;
   width: 100%;
-  overflow-x: hidden;
 }
 
+/* ─── DESKTOP: 5 cards in one row ─── */
 .teamGrid {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px 20px; /* Vertical gap, Horizontal gap */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px 20px;
 }
 
 .teamMember {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  cursor: pointer;
 }
 
 .memberImageWrapper {
@@ -24,231 +24,190 @@
   background-color: #f7f7f7;
   aspect-ratio: 4 / 5;
   width: 100%;
+  border-radius: 4px;
+  isolation: isolate;
 }
 
 .memberImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* HOVER EFFECTS */
-@media (hover: hover) {
-  .teamMember:hover .memberImage {
-    transform: scale(1.08);
-  }
-
-  .teamMember:hover .socialOverlay {
-    opacity: 1;
-  }
-
-  .teamMember:hover .iconCircle {
-    transform: translateY(0);
-  }
-
-  .teamMember:hover .memberInfo {
-    border-color: #eee;
-  }
-}
-
-.socialOverlay {
+/* ─── OVERLAY ─── */
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px;
-  opacity: 0;
-  background: rgba(0, 0, 0, 0.05); /* Slight tint for better icon visibility */
-  transition: opacity 0.4s ease;
-  cursor: pointer;
-}
-
-.socialOverlay:hover,
-.socialOverlay.active {
-  opacity: 1;
-}
-
-.iconContainer {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  max-width: 120px;
-}
-
-.socialIcon {
-  width: 36px;
-  height: 36px;
-  background: var(--gradient-luxury);
-  color: white;
-  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: var(--shadow-gentle);
-  transform: translateY(-10px);
+  opacity: 0;
+  transition: all 0.4s ease;
+  padding: 20px;
+  text-align: center;
 }
 
-.socialIcon:hover {
-  transform: translateY(-10px) scale(1.1);
-  box-shadow: var(--shadow-soft);
-}
-
-.socialIcon svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
-
-/* Mobile responsive layout */
-@media (max-width: 768px) {
-  .iconContainer {
-    max-width: 80px;
-    gap: 6px;
-  }
-  
-  .socialIcon {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .socialIcon svg {
-    width: 16px;
-    height: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .iconContainer {
-    max-width: 70px;
-    gap: 4px;
-  }
-  
-  .socialIcon {
-    width: 30px;
-    height: 30px;
-  }
-  
-  .socialIcon svg {
-    width: 14px;
-    height: 14px;
-  }
-}
-
-.socialTooltip {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  border-radius: var(--radius-medium);
-  box-shadow: var(--shadow-elegant);
-  padding: 8px 12px;
-  min-width: 140px;
-  z-index: 10;
-  animation: tooltipFadeIn 0.3s ease;
-}
-
-@keyframes tooltipFadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-.tooltipContent {
+.overlayContent {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+  width: 100%;
+}
+
+.overlayHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 8px;
 }
 
-.tooltipContent a {
-  color: var(--primary-dark);
-  text-decoration: none;
-  font-family: var(--font-secondary);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 4px 8px;
-  border-radius: var(--radius-small);
-  transition: all 0.2s ease;
+.overlayFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 12px;
+  width: 80%;
 }
 
-.tooltipContent a:hover {
-  background: var(--accent-blush);
-  color: white;
+/* ─── DESKTOP HOVER ─── */
+@media (hover: hover) {
+  .teamMember:hover .overlay {
+    opacity: 1;
+  }
+  .teamMember:hover .overlayContent {
+    transform: translateY(0);
+  }
+  .teamMember:hover .memberImage {
+    transform: scale(1.05);
+  }
 }
 
-.fbIcon {
-  font-family: serif;
-  font-weight: bold;
-  font-style: italic;
+/* ─── ACTIVE STATE (touch/click) ─── */
+.teamMember.active .overlay {
+  opacity: 1;
+}
+.teamMember.active .overlayContent {
+  transform: translateY(0);
 }
 
+/* ─── OVERLAY INTERNALS ─── */
+.miniPhoto {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.overlayName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+  text-align: center;
+}
+
+.overlayRole {
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 15px;
+  margin-top: 4px;
+}
+
+.socialLinks a {
+  color: #1a1a1a;
+  transition: color 0.3s;
+}
+
+.socialLinks a:hover {
+  color: #0077b5;
+}
+
+.socialLinks svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ─── CARD INFO (below image) ─── */
 .memberInfo {
-  padding: 15px 0;
+  padding: 12px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
 }
 
 .name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  color: #232323;
-  margin: 0;
 }
 
 .role {
   font-size: 11px;
   color: #999;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
 }
 
-/* RESPONSIVE BREAKPOINTS */
-
-@media (max-width: 1100px) {
+/* ─── TABLET: 2 + 2 + 1 centered ─── */
+@media (max-width: 992px) {
   .teamGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px 25px;
+    max-width: 600px;
+  }
+
+  /* 5th card (last-child) centers itself in the 2-col grid */
+  .teamMember:last-child {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 10px);
+    margin: 0 auto;
   }
 }
 
+/* ─── MOBILE: same 2-col layout, smaller gap ─── */
 @media (max-width: 600px) {
   .team {
-    padding: 60px 20px;
+    padding: 60px 5%;
   }
-  
+
   .teamGrid {
-    /* Use 1 column for phones, but keep a max-width so images aren't huge */
+    gap: 20px 16px;
+    max-width: 100%;
+  }
+
+  .miniPhoto {
+    width: 44px;
+    height: 44px;
+  }
+
+  .overlayName {
+    font-size: 0.82rem;
+  }
+}
+
+/* ─── VERY SMALL: single column ─── */
+@media (max-width: 380px) {
+  .teamGrid {
     grid-template-columns: 1fr;
-    max-width: 350px; 
-    margin: 0 auto;
+    max-width: 280px;
   }
 
-  .name { font-size: 16px; }
-  .role { font-size: 12px; }
-
-  /* On mobile, icons usually look better always visible or disabled */
-  .socialOverlay {
-    opacity: 1;
-    background: transparent;
-  }
-  
-  .iconCircle {
-    transform: translateY(0);
-    width: 32px;
-    height: 32px;
+  .teamMember:last-child {
+    grid-column: auto;
+    max-width: 100%;
   }
 }
