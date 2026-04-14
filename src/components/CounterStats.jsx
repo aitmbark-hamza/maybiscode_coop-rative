@@ -37,10 +37,10 @@ const CounterStats = () => {
   }, []);
 
   const stats = [
-    { label: "Days of experience.", value: 3053, desc: "We have crafted beautiful and engaging web solutions." },
-    { label: "Valuable happy clients.", value: 1750, desc: "We have crafted beautiful and engaging web solutions." },
-    { label: "Presence in countries.", value: 50, desc: "We have crafted beautiful and engaging web solutions." },
-    { label: "Worldwide projects.", value: 856, desc: "We have crafted beautiful and engaging web solutions." }
+    { label: "Days of experience.", value: 10, desc: "We have crafted beautiful and engaging web solutions." },
+    { label: "Valuable happy clients.", value: 10, desc: "We have crafted beautiful and engaging web solutions." },
+    { label: "Presence in countries.", value: 10, desc: "We have crafted beautiful and engaging web solutions." },
+    { label: "Worldwide projects.", value: 10, desc: "We have crafted beautiful and engaging web solutions." }
   ];
 
   return (

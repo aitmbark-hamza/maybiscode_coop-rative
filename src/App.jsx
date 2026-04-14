@@ -14,7 +14,6 @@ import CounterStats from './components/CounterStats';
 import TeamSection from './components/TeamSection';
 import TestimonialsSection from './components/TestimonialsSection';
 import Footer from './components/Footer';
-import SideWidget from './components/SideWidget';
 
 function App() {
   return (
@@ -33,7 +32,7 @@ function App() {
         <TestimonialsSection />
       </main>
       <Footer />
-      <SideWidget />
+    
     </div>
   );
 }

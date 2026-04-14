@@ -33,9 +33,9 @@ const StatsSection = () => {
   }, []);
 
   const stats = [
-    { number: "1336+", title: "Over 1336+ success worldwide projects.", desc: "We create compelling web designs, which are the right-fit for your target groups." },
-    { number: "756+", title: "Over 756+ happy clients and counting.", desc: "We create compelling web designs, which are the right-fit for your target groups." },
-    { number: "11+", title: "Our presence in over 11+ countries.", desc: "We create compelling web designs, which are the right-fit for your target groups." }
+    { number: "1336+", title: "Over 10+ success worldwide projects.", desc: "We create compelling web designs, which are the right-fit for your target groups." },
+    { number: "756+", title: "Over 10+ happy clients and counting.", desc: "We create compelling web designs, which are the right-fit for your target groups." },
+    { number: "11+", title: "Our presence in over 10+ countries.", desc: "We create compelling web designs, which are the right-fit for your target groups." }
   ];
 
   return (
