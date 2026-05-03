@@ -1,27 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './ProjectsSection.module.css';
 
 const projects = [
   {
+     
     id: 1,
-    number: '01',
-    category: 'BRANDING AND',
-    categoryHighlight: 'DESIGN',
-    title: 'Whiteline\nface\nbeauty.',
-    description: 'Creating products with a strong identity. Provide brilliant ideas and adding the world called success brand. We deliver customized marketing campaign to use your audience to make a positive move.',
-    image: 'image1.png',
-    link: '/projects/whiteline'
-  },
-  {
-    id: 2,
     number: '02',
     category: 'WEB DEVELOPMENT AND',
     categoryHighlight: 'DESIGN',
     title: 'Rebounce\nforce riders.',
     description: 'We specialize in developing products with a distinct and compelling identity. Our team excels generating brilliant ideas that propel brands to success. Through customized marketing campaigns.',
-    image: 'image2.png',
-    link: '/projects/rebounce'
+    image: 'image1.png',
+    link: 'https://achulene-caf-restaurant.vercel.app/'
   },
+  {
+    id: 2,
+    number: '01',
+    category: 'BRANDING AND',
+    categoryHighlight: 'DESIGN',
+    title: 'Whiteline\nface\nbeauty.',
+    description: 'Creating products with a strong identity. Provide brilliant ideas and adding the world called success brand. We deliver customized marketing campaign to use your audience to make a positive move.',
+    image: 'image2.png',
+    link: 'vercel'
+  },
+ 
   {
     id: 3,
     number: '03',
@@ -158,6 +161,17 @@ const ProjectShowcaseScroll = () => {
             </div>
           </div>
         ))}
+        
+        {/* View More Button */}
+        <div className={styles.viewMoreContainer}>
+          <Link to="/projects" className={styles.viewMoreBtn}>
+            <span>View More Projects</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </Link>
+        </div>
       </div>
     </div>
   );
