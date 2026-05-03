@@ -86,7 +86,7 @@
   transform: translateY(-50%);
   width: 3px;
   height: 100px;
-  background: rgba(255, 255, 255, 0.3);
+  background: #FF6A00;
   border-radius: 3px;
   z-index: 10;
   overflow: hidden;

@@ -35,11 +35,8 @@ const TeamSection = () => {
   }, []);
 
   const team = [
-    { name: "Yassmina Hammouch", role: "Developer", image: "Yassmina Hammouch.png", github: "#", linkedin: "#" },
     { name: "Samira Moukrim",    role: "Developer", image: "samira.png", github: "#", linkedin: "#" },
     { name: "Nnoha Anissi",      role: "Developer", image: "hbiba.png", github: "#", linkedin: "#" },
-    { name: "Ibtissam Baissar",  role: "Designer",  image: "ibtissam.png", github: "#", linkedin: "#" },
-    { name: "Mouna Hammouch",    role: "Developer", image: "mouna.png", github: "#", linkedin: "#" },
   ];
 
   const handleToggle = (index) => {
